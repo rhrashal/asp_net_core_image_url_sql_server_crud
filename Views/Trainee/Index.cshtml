@@ -1,0 +1,35 @@
+﻿@model Evi_test.TraineeView
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+<a asp-controller="Trainee" asp-action="Create">Create</a>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Photo</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var Item in Model.Trainees)
+    {
+        <tr>
+            <td>
+                @Item.Name
+            </td>
+            <td>
+                @Item.BIrthDate
+            </td>
+            <td>
+                <img src="@Url.Content(Item.ImageUrl)" width="100" height="100" />
+            </td>
+            <td>
+                <a asp-controller="Trainee" asp-action="Edit" asp-route-id="@Item.Id">Edit</a>
+                <a asp-controller="Trainee" asp-action="Delete" asp-route-id="@Item.Id">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
+
+@Html.Partial("_Trainee")

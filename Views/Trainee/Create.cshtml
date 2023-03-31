@@ -1,0 +1,36 @@
+﻿@model Evi_test.Trainee
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+<form asp-controller="Trainee" asp-action="Create" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Photo</th>
+            <th>Action</th>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="text" asp-for="Name" />
+                <span asp-validation-for="Name" ></span>
+            </td>
+            <td>
+                <input type="date" asp-for="BIrthDate" />
+                <span asp-validation-for="BIrthDate"></span>
+            </td>
+            <td>
+                <input type="file" name="formFile" />
+            </td>
+            <td>
+                <a asp-controller="Trainee" asp-action="Index">goto back</a>
+                <input type="submit" value="save" />
+            </td>
+        </tr>
+
+    </table>
+
+</form>
